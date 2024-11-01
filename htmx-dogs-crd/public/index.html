@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>CRD</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    </head>
+    <body>
+        <h1>Cachorros</h1>
+        <form 
+            hx-post="/dog"
+            hx-disable-elt="#add-btn"
+            hx-target="table tbody"
+            hx-swap="afterbegin"
+            hx-on:htmx:after-request="this.reset()"
+        >
+            <div>
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" size="30" required>
+            </div>
+            <div>
+                <label for="breed">Raça</label>
+                <input type="text" name="breed" id="breed" required size="30">
+            </div>
+            <button id="add-btn">Adicionar</button>
+        </form>
+        <table hx-trigger="revealed" hx-get="/table-rows" hx-target="tbody">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Raça</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </body>    
+</html>
