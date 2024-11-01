@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Demo do htmx</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    </head>
+    <body>
+        <button hx-get="/version" hx-target="#version">Obter a versão do Bun</button>
+        <div id="version"></div>
+    </body>    
+</html>
